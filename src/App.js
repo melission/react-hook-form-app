@@ -4,7 +4,7 @@ import FormComponent from './forms/FormController';
 function App() {
   return (
     <div className="App">
-      <FormComponent></FormComponent>
+      <FormComponent/>
     </div>
   );
 }
