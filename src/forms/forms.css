@@ -1,0 +1,47 @@
+.text {
+    font-size: 1.3rem;
+}
+
+.form-block {
+    background-color: teal;
+    max-width: 800px;
+    height: 500px;
+    width: 60%;
+    margin: 7rem auto;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    /* border: 1px solid red; */
+}
+
+.form__input {
+    /* border: 1px solid red; */
+    max-width: 500px;
+    width: 70%;
+    margin: 0;
+    padding: 0;
+}
+
+.form_checkbox {
+    width: 1.2rem;
+}
+
+.form-element {
+    display: flex;
+    width: 100%;
+    /* border: 1px solid white; */
+    justify-content: space-between;
+    margin: 0.5rem;
+}
+
+.form-button {
+    width: 30%;
+    height: 2rem;
+    margin: 1rem auto 0;
+}
+
+.form-button:hover{
+    background-color: darkslategrey;
+    color: white;
+    border: 0.1rem solid white;
+}
