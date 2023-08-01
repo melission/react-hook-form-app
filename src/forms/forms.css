@@ -1,11 +1,20 @@
+h3 {
+    text-align: center;
+}
+
+body {
+    background-image: url("../bg.jpg") ;
+}
+
 .text {
-    font-size: 1.3rem;
+    /* font-size: 1.3rem; */
 }
 
 .form-block {
     background-color: teal;
     max-width: 800px;
-    height: 500px;
+    height: 600px;
+    overflow: scroll;
     width: 60%;
     margin: 7rem auto;
     display: flex;
@@ -16,9 +25,10 @@
 
 .form__input {
     /* border: 1px solid red; */
-    max-width: 500px;
-    width: 70%;
-    margin: 0;
+    /* max-width: 500px; */
+    /* width: 70%; */
+    height: 1.5rem;
+    margin: 0.5rem;
     padding: 0;
 }
 
@@ -28,6 +38,7 @@
 
 .form-element {
     display: flex;
+    flex-direction: column;
     width: 100%;
     /* border: 1px solid white; */
     justify-content: space-between;
