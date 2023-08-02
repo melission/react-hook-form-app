@@ -3,12 +3,17 @@ h3 {
 }
 
 body {
-    background-image: url("../bg.jpg") ;
+    background: url("../bg.jpg") center / cover no-repeat fixed;
+    position: relative;
+    color: black;
+    /* border: 3px solid red; */
 }
 
-.text {
-    /* font-size: 1.3rem; */
-}
+
+
+/* .text {
+    font-size: 1.3rem;
+} */
 
 .form-block {
     background-color: teal;
@@ -20,7 +25,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    /* border: 1px solid red; */
+    border: 0.3rem solid whitesmoke;
 }
 
 .form__input {
@@ -39,7 +44,7 @@ body {
 .form-element {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 95%;
     /* border: 1px solid white; */
     justify-content: space-between;
     margin: 0.5rem;
@@ -47,7 +52,7 @@ body {
 
 .form-button {
     width: 30%;
-    height: 2rem;
+    height: 2.5rem;
     margin: 1rem auto 0;
 }
 
@@ -60,4 +65,41 @@ body {
 .radio-element {
     display: inline-block;
 
+}
+
+@media (orientation: portrait) {
+    body::before {
+        content: '';
+        /* opacity: 0.5; */
+        /* background-color: rgba(255, 255, 255, 0.5); */
+        /* background: url('../bg.jpg') center / cover no-repeat fixed rgba(255, 255, 255, 0.495) */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        /* pointer-events: none; */
+    }
+    .form-block {
+        background: none;
+        width: 100%;
+        height: 90%;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0 auto;
+        color: #000;
+    }
+    .form-block * {
+        color: #000;
+    }
+    .form-button {
+        margin-bottom: 2rem;
+        height: 3.5rem;
+    }
+    .form__input {
+        height: 2.5rem;
+    }
+    .form-element__name {
+        background-color: rgba(255, 255, 255, 0.7);;
+    }
 }
