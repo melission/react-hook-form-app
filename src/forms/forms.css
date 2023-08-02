@@ -87,7 +87,7 @@ body {
         font-size: 2.3rem;
     }
     .form-block {
-        background: none;
+        background-color: rgba(255, 255, 255, 0.5); 
         width: 100%;
         height: 90%;
         /* box-sizing: border-box; */
@@ -113,10 +113,11 @@ body {
         height: 2.5rem;
         margin: 0.5rem auto;
         width: 80%;
-        /* border: 1px solid red; */
+        background-color: transparent;
+        border: 0.2rem solid white;
     }
     .form-element__name, .form__input {
-        background-color: rgba(255, 255, 255, 0.7);
+        /* background-color: rgba(255, 255, 255, 0.7); */
         /* border: none; */
     }
     .radio-element {
@@ -130,6 +131,6 @@ body {
         /* border: 1px solid black; */
     }
     .radio-element label {
-        background-color: rgba(255, 255, 255, 0.7);
+        /* background-color: rgba(255, 255, 255, 0.7); */
     }
 }
