@@ -52,12 +52,10 @@ const FormComponent = () => {
           <label className='form-element__name'>Have you ever been on a tropical island?
           </label>
           <div className='radio-element'{...register("was_on_trpical_island", {required: true})}>
-            <label>
-              <input type='radio' className='form__input' name='tropicalIsland' value='yes' onChange={handleIslandChange} /> Yes
-            </label>
-            <label>
-              <input type='radio' className='form__input' name='tropicalIsland' value='no' onChange={handleIslandChange} /> No
-            </label>
+              <input type='radio' className='form__input' name='tropicalIsland' value='yes' onChange={handleIslandChange} />
+              <label for='yes'>Yes</label>
+              <input type='radio' className='form__input' name='tropicalIsland' value='no' onChange={handleIslandChange} />
+              <label for='no'>No</label>
           </div>
         </div>
         {hasBeenOnTropicalIsland === 'yes' && (
@@ -78,12 +76,10 @@ const FormComponent = () => {
       <div className='form-element'>
         <label className='form-element__name'>Have you ever visited a famous landmark?</label>
         <div className='radio-element'{...register("has_visited_landmark", {required: true})}>
-          <label>
-            <input type="radio" className='form__input' name='hasVisitedLandmark' value="yes" onChange={handleLandmarkChange} /> Yes
-          </label>
-          <label>
-            <input type="radio" className='form__input' name='hasVisitedLandmark' value="no" onChange={handleLandmarkChange} /> No
-          </label>
+            <input type="radio" className='form__input' name='hasVisitedLandmark' value="yes" onChange={handleLandmarkChange} /> 
+            <label for="yes">Yes</label>
+            <input type="radio" className='form__input' name='hasVisitedLandmark' value="no" onChange={handleLandmarkChange} /> 
+            <label for="no">No</label>
         </div>
       </div>
       {hasVisitedLandmark === "yes" && (
