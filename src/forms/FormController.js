@@ -90,7 +90,7 @@ const FormComponent = () => {
       )}
       <div className='form-element'>
         <label className='form-element__name'>What is your favourite city to visit for cultural experience?</label>
-        <input className='form__input'></input>
+        <input className='form__input'{...register('fav_city', {required: true})}></input>
       </div>
       <div className='form-element'>
         <label className='form-element__name'>Which type of accommodations do you prefer: hotels, resorts, or vacation rentals?</label>
