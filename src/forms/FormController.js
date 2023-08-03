@@ -1,11 +1,17 @@
 import React, {useState} from 'react';
 import "./forms.css";
 import { useForm } from 'react-hook-form';
+import TextField from '@mui/material/TextField'
 
 const FormComponent = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [hasBeenOnTropicalIsland, setHasBeenOnTropicalIsland] = useState(null);
   const [hasVisitedLandmark, setHasVisitedLandmark] = useState(null)
+  const [hasStory, setHasStory] = useState(null);
+
+  const handleHasStory = (e) => {
+    setHasStory(e.target.value);
+  }
 
   const handleIslandChange = (e) => {
     setHasBeenOnTropicalIsland(e.target.value);
@@ -25,7 +31,7 @@ const FormComponent = () => {
         body: JSON.stringify(data)
       });
       const result = await response.json();
-      console.log(result);
+      console.log('Successfully submitted, data: ', result);
     } catch (error) {
       console.error('Error submitting form:', error);
     }
@@ -132,6 +138,21 @@ const FormComponent = () => {
         <label className='form-element__name'>Which travel destination is your top recommendation to visit?</label>
         <input className='form__input'{...register("favDestnation", {required: true})}></input>
       </div>
+      <div className='form-element'>
+        <label className='form-element__name'{...register('has_story_to_share', {required: true})}>A funny story about travelling to share?</label>
+        <div className='radio-element'>
+          <input className='form__input' type='radio' name='hasStory' value='yes' onChange={handleHasStory} />
+          <label for='yes'>Yes</label>
+          <input className='form__input' type='radio' name='hasStory' value='no' onChange={handleHasStory} />
+          <label for='no'>No</label>
+        </div>
+      </div>
+      {hasStory === 'yes' && (
+        <div className='form-element'>
+          <label className='form-element__name'>Share it!</label>
+          <TextField placeholder='the field is here simply for the sake of binding MIU with React-hook-form'></TextField>
+        </div>
+        )}
       <button className='form-button' type="submit">Submit</button>
     </form>
   );
