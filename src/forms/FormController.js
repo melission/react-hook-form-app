@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import "./forms.css";
-import { useForm } from 'react-hook-form';
+import { useForm, Form } from 'react-hook-form';
 import TextField from '@mui/material/TextField'
 
 const FormComponent = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, control, formState: { errors } } = useForm();
   const [hasBeenOnTropicalIsland, setHasBeenOnTropicalIsland] = useState(null);
   const [hasVisitedLandmark, setHasVisitedLandmark] = useState(null)
   const [hasStory, setHasStory] = useState(null);
@@ -38,7 +38,7 @@ const FormComponent = () => {
   };
 
   return (
-    <form className='form-block text' onSubmit={handleSubmit(onSubmit)}>
+    <Form control={control} className='form-block text' onSubmit={handleSubmit(onSubmit)}>
       <h3>Favourite Travel Destinations</h3>
         <p>All fields above are required</p>
       <div className='form-element'>
@@ -47,7 +47,10 @@ const FormComponent = () => {
       </div>
       <div className='form-element'>
         <label className='form-element__name'>Which country would you like to visit the most?</label>
-        <input className='form__input'{...register("fav_country", {required: true})}></input>
+        <input className='form__input'{...register("fav_country", {required: true})} aria-invalid={errors.fav_country ? "true" : "false"}></input>
+      {errors.fav_country?.type === "required" && (
+        <p role="alert">It's a requiered field</p>
+      )}
       </div>
       {/* <div className='form-element'>
         <label className='form-element__name'>Have you ever been on a tropical island?
@@ -150,11 +153,11 @@ const FormComponent = () => {
       {hasStory === 'yes' && (
         <div className='form-element'>
           <label className='form-element__name'>Share it!</label>
-          <TextField placeholder='the field is here simply for the sake of binding MIU with React-hook-form'></TextField>
+          <TextField variant='outlined' margin='normal' multiline={true} rows='2' placeholder='the field is here simply for the sake of binding MIU with React-hook-form'></TextField>
         </div>
         )}
       <button className='form-button' type="submit">Submit</button>
-    </form>
+    </Form>
   );
 };
 
