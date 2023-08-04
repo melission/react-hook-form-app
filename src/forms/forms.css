@@ -16,7 +16,7 @@ body {
 } */
 
 .form-block {
-    background-color: teal;
+    background-color: #80b0ab;
     max-width: 800px;
     height: 600px;
     overflow: scroll;
@@ -50,10 +50,17 @@ body {
     margin: 0.5rem;
 }
 
+.form-element__name {
+    margin: 0.3rem;
+}
+
 .form-button {
     width: 30%;
-    height: 2.5rem;
+    /* height: 2.5rem; */
+    font-size: large;
+    padding: 0.5rem;
     margin: 1rem auto 0;
+    border: 0.1rem solid black;
 }
 
 .form-button:hover{
