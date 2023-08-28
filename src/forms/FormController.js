@@ -57,11 +57,6 @@ const FormComponent = () => {
         <p role="alert">It's a required field</p>
       )}
       </div>
-      {/* <div className='form-element'>
-        <label className='form-element__name'>Have you ever been on a tropical island?
-        If yes, which one was your favourite?</label>
-        <input className='form__input'></input>
-      </div> */}
         <div className='form-element'>
           <label className='form-element__name'>Have you ever been on a tropical island?
           </label>
@@ -91,11 +86,6 @@ const FormComponent = () => {
         <p role='alert'>It's a required field</p>   
       )}
       </div>
-      {/* <div className='form-element'>
-        <label className='form-element__name'>Do you prefer a beach vacation or a mountain retreat?</label>
-        <input name='beach' type="radio" className='form__input'>Beach</input>
-        <input name='mountains' type="radio" className='form__input'>Mountain</input>
-      </div> */}
       <div className='form-element'>
         <label className='form-element__name'>Have you ever visited a famous landmark?</label>
         <div className='radio-element'{...register("has_visited_landmark", {required: true})} aria-invalid={errors.has_visited_landmark ? 'true' : 'false'}>
