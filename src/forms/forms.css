@@ -102,6 +102,7 @@ body {
         margin: 0 auto;
         color: #000;
         font-size: 1.55rem;
+        border: none;
     }
     /* .form-block * {
         color: #000;
