@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "./forms.css";
 import { useForm, Form } from 'react-hook-form';
 import TextField from '@mui/material/TextField'
+import nodePort from '../config.json';
 
 const FormComponent = () => {
   const { register, handleSubmit, control, formState: { errors } } = useForm();
@@ -23,7 +24,8 @@ const FormComponent = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch('http://localhost:7683/submit-form', {
+      const port = nodePort;
+      const response = await fetch(`http://localhost:${port}/submit-form`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -45,7 +47,7 @@ const FormComponent = () => {
         <label className='form-element__name'>What is your favourite destination?</label>
         <input className='form__input'{...register("destination", {required: true, pattern: /^[A-Za-z]+$/i})} aria-invalid={errors.destination ? 'true' : 'false'}></input>
       {errors.destination?.type === "required" && (
-        <p role='alert'>It's a required field</p>
+        <p role='alert'>It's a required field </p>
       )}
       </div>
       <div className='form-element'>
