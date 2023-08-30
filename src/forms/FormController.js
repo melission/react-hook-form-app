@@ -23,6 +23,7 @@ const FormComponent = () => {
   }
 
   const onSubmit = async (data) => {
+    console.log("submitted", data)
     try {
       const port = nodePort;
       const response = await fetch(`http://localhost:${port}/submit-form`, {
@@ -60,10 +61,10 @@ const FormComponent = () => {
         <div className='form-element'>
           <label className='form-element__name'>Have you ever been on a tropical island?
           </label>
-          <div className='radio-element'{...register("was_on_tropical_island", {required: true})} aria-invalid={errors.was_on_tropical_island ? 'true' : 'false'}>
-              <input type='radio' className='form__input' name='tropicalIsland' value='yes' onChange={handleIslandChange} />
+          <div className='radio-element' aria-invalid={errors.was_on_tropical_island ? 'true' : 'false'}>
+              <input type='radio' {...register("was_on_tropical_island", {required: true})} className='form__input' name='tropicalIsland' value='yes' onChange={handleIslandChange} />
               <label for='yes'>Yes</label>
-              <input type='radio' className='form__input' name='tropicalIsland' value='no' onChange={handleIslandChange} />
+              <input type='radio' {...register("was_on_tropical_island", {required: true})} className='form__input' name='tropicalIsland' value='no' onChange={handleIslandChange} />
               <label for='no'>No</label>
           {errors.was_on_tropical_island?.type === 'required' && (
             <p role='alert'>It's a required field</p>
@@ -88,10 +89,10 @@ const FormComponent = () => {
       </div>
       <div className='form-element'>
         <label className='form-element__name'>Have you ever visited a famous landmark?</label>
-        <div className='radio-element'{...register("has_visited_landmark", {required: true})} aria-invalid={errors.has_visited_landmark ? 'true' : 'false'}>
-            <input type="radio" className='form__input' name='hasVisitedLandmark' value="yes" onChange={handleLandmarkChange} /> 
+        <div className='radio-element' aria-invalid={errors.has_visited_landmark ? 'true' : 'false'}>
+            <input type="radio" {...register("has_visited_landmark", {required: true})} className='form__input' name='hasVisitedLandmark' value="yes" onChange={handleLandmarkChange} /> 
             <label for="yes">Yes</label>
-            <input type="radio" className='form__input' name='hasVisitedLandmark' value="no" onChange={handleLandmarkChange} /> 
+            <input type="radio" {...register("has_visited_landmark", {required: true})} className='form__input' name='hasVisitedLandmark' value="no" onChange={handleLandmarkChange} /> 
             <label for="no">No</label>
         </div>
         {errors.has_visited_landmark?.type === 'required' && (
@@ -116,10 +117,10 @@ const FormComponent = () => {
       </div>
       <div className='form-element'>
         <label className='form-element__name'>Which type of accommodations do you prefer: hotels, resorts, or vacation rentals?</label>
-        <select className='form__input'{...register("favouriteAccommodation", {required: true})} aria-invalid={errors.favouriteAccommodation ? 'true' : 'false'}>
-          <option value="hotels">Hotels</option>
-          <option value="resorts">Resorts</option>
-          <option value="rentals">Vacation rentals</option>
+        <select className='form__input' aria-invalid={errors.favouriteAccommodation ? 'true' : 'false'}>
+          <option {...register("favouriteAccommodation", {required: true})} value="hotels">Hotels</option>
+          <option {...register("favouriteAccommodation", {required: true})} value="resorts">Resorts</option>
+          <option {...register("favouriteAccommodation", {required: true})} value="rentals">Vacation rentals</option>
         </select>
         {errors.favouriteAccommodation?.type === 'required' && (
           <p role='alert'>It's a required field</p> 
@@ -127,9 +128,9 @@ const FormComponent = () => {
       </div>
       <div className='form-element'>
         <label className='form-element__name'>When you travel, do you like to plan every detail in advance or to be spontaneous?</label>
-        <select className='form__input'{...register("travelPlanning", {required: true})} aria-invalid={errors.travelPlanning ? 'true' : 'false'}>
-          <option value="inAdvance">In advance prevails</option>
-          <option value="spontaneous">Be spontaneous prevails</option>
+        <select className='form__input' aria-invalid={errors.travelPlanning ? 'true' : 'false'}>
+          <option {...register("travelPlanning", {required: true})} value="inAdvance">In advance prevails</option>
+          <option {...register("travelPlanning", {required: true})} value="spontaneous">Be spontaneous prevails</option>
         </select>
         {errors.travelPlanning?.type === 'required' && (
          <p role='alert'>It's a required field</p> 
@@ -151,11 +152,11 @@ const FormComponent = () => {
       </div>
       <div className='form-element'>
         <label className='form-element__name'>Do you prefer travelling solo, with family, or with friends?</label>
-        <select className='form__input'{...register("travelCompany", {required: true})} aria-invalid={errors.travelCompany ? 'true' : 'false'}>
-          <option value="solo">Solo</option>
-          <option value="withFamily">With Family</option>
-          <option value="withFriends">With Friends</option>
-          <option value="other">Other</option>
+        <select className='form__input' aria-invalid={errors.travelCompany ? 'true' : 'false'}>
+          <option {...register("travelCompany", {required: true})} value="solo">Solo</option>
+          <option {...register("travelCompany", {required: true})} value="withFamily">With Family</option>
+          <option {...register("travelCompany", {required: true})} value="withFriends">With Friends</option>
+          <option {...register("travelCompany", {required: true})} value="other">Other</option>
         </select>
         {errors.travelCompany?.type === 'required' && (
         <p role='alert'>It's a required field</p>  
@@ -176,11 +177,17 @@ const FormComponent = () => {
       )}
       </div>
       <div className='form-element'>
-        <label className='form-element__name'{...register('has_story_to_share', {required: true})} aria-invalid={errors.has_story_to_share ? 'true' : 'false'}>A funny story about travelling to share?</label>
         <div className='radio-element'>
-          <input className='form__input' type='radio' name='hasStory' value='yes' onChange={handleHasStory} />
+        <input {...register("radio")} type="radio" value="A" /> Yes
+        <input {...register("radio")} type="radio" value="B" /> No
+        </div>
+      </div>
+      <div className='form-element'>
+        <label className='form-element__name' aria-invalid={errors.has_story_to_share ? 'true' : 'false'}>A funny story about travelling to share?</label>
+        <div className='radio-element'>
+          <input className='form__input' {...register('has_story_to_share', {required: true})} type='radio' name='hasStory' value='yes' onChange={handleHasStory} />
           <label for='yes'>Yes</label>
-          <input className='form__input' type='radio' name='hasStory' value='no' onChange={handleHasStory} />
+          <input className='form__input' {...register('has_story_to_share', {required: true})} type='radio' name='hasStory' value='no' onChange={handleHasStory} />
           <label for='no'>No</label>
         </div>
         {errors.has_story_to_share?.type === 'required' && (
