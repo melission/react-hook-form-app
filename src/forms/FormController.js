@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import "./forms.css";
 import { useForm, Form } from 'react-hook-form';
 import TextField from '@mui/material/TextField'
-import nodePort from '../config.json';
+import config from '../config.json';
 
 const FormComponent = () => {
   const { register, handleSubmit, control, formState: { errors } } = useForm();
@@ -25,7 +25,7 @@ const FormComponent = () => {
   const onSubmit = async (data) => {
     console.log("submitted", data)
     try {
-      const port = nodePort;
+      const port = config.nodePort;
       const response = await fetch(`http://localhost:${port}/submit-form`, {
         method: 'POST',
         headers: {
